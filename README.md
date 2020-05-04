@@ -1,5 +1,5 @@
 # terraform-aws-infra-live
-Terragrunt deployment repository - heavily based on gruntwork-io's [terragrunt-infrastructure-live-example](https://github.com/gruntwork-io/terragrunt-infrastructure-live-example)
+Terragrunt deployment repository
 
 This repository is a terragrunt deployment repository to deploy terraform modules in a multi-account AWS environment:
 - master/root account: AWS Organizations master with two linked environment-accounts:
@@ -83,3 +83,6 @@ aws_secret_access_key = YOUR_SECRET_ACCESS_KEY_ROOT_ACCOUNT
 See also 
 - [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html)
 - [Switching to a Role (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html)
+
+# Credits
+Many ideas from gruntwork-io's [terragrunt-infrastructure-live-example](https://github.com/gruntwork-io/terragrunt-infrastructure-live-example)
