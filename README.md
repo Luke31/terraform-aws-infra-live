@@ -31,6 +31,14 @@ terragrunt plan-all
 terragrunt apply-all
 ```
 
+## You are developing and want to have a fast feedback-loop?
+Acceptable method: Instead of`terraform { source = "github.com:...." }` use 
+`terraform { source = "/Users/YOUR-PATH-TO-GIT-REPO/terraform-aws-infra-modules//serverless-pypi" }` 
+to point absolutely to your current development-repo.
+You can deploy your application to `dev` using the method mentioned above.
+- Do only do this in the dev-environment!
+- Don't commit to VCS!
+
 # Preconditions
 ## AWS accounts
 This repository is intended to work with three AWS accounts and set up accordingly:
