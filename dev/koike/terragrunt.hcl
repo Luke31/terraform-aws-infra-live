@@ -3,8 +3,8 @@ include {
 }
 
 terraform {
-  # source = "git::git@github.com:Luke31/terraform-aws-infra-modules.git//koike"
-  source = "/Users/lukas-schmid/git/terraform-aws-infra-modules/koike"
+  source = "git::git@github.com:Luke31/terraform-aws-infra-modules.git//koike"
+  # source = "/Users/lukas-schmid/git/terraform-aws-infra-modules/koike"
 }
 inputs = {
   project_name = "koike"
