@@ -1,0 +1,58 @@
+name: 'Terragrunt GitHub Actions'
+on: [push]
+env:
+  tf_version: 'latest'
+  tg_version: 'latest'
+  tf_working_dir: '.'
+jobs:
+  terragrunt:
+    name: 'Terragrunt'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: 'Terragrunt Format'
+        uses: the-commons-project/terragrunt-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tg_actions_version: ${{ env.tg_version }}
+          tf_actions_binary: 'terraform'
+          tf_actions_subcommand: 'fmt'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
+          tf_actions_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terragrunt Init'
+        uses: the-commons-project/terragrunt-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tg_actions_version: ${{ env.tg_version }}
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
+          tf_actions_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terragrunt Validate'
+        uses: the-commons-project/terragrunt-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tg_actions_version: ${{ env.tg_version }}
+          tf_actions_binary: 'terraform'
+          tf_actions_subcommand: 'validate'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
+          tf_actions_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terragrunt Plan'
+        uses: the-commons-project/terragrunt-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tg_actions_version: ${{ env.tg_version }}
+          tf_actions_subcommand: 'apply'
+          tf_actions_working_dir: ${{ env.tf_working_dir }}
+          tf_actions_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# TODO: Use secrets
+# Set and use aws_access_key_id, aws_secret_access_key
+# Dev: TF_VAR_pip_index_url = secrets.pip_index_url_dev or secrets.pip_index_url_prd
