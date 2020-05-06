@@ -37,3 +37,6 @@ site-packages.zip
 
 # Python
 .python-version
+
+# Mac OS
+.DS_Store
