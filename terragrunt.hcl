@@ -5,6 +5,7 @@ locals {
   account_name = local.environment_vars.locals.account_name
   account_id   = local.environment_vars.locals.aws_account_id
   environment = local.environment_vars.locals.environment
+  pip_index_url_without_https = local.environment_vars.pip_index_url_without_https
   bucket_prefix = "sc"
   region = "ap-northeast-1"
 }
@@ -47,4 +48,5 @@ inputs = merge(
   {env = local.environment},
   {bucket_prefix = local.bucket_prefix},
   {region = local.region}
+  {pip_index_url_without_https = local.pip_index_url_without_https}
 )

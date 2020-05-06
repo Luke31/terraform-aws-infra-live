@@ -30,3 +30,10 @@ override.tf.json
 .terragrunt-cache
 
 .idea
+
+# ignore temporary site-packages for AWS Glue Python
+site-packages
+site-packages.zip
+
+# Python
+.python-version

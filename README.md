@@ -14,7 +14,8 @@ cd dev/remote-state
 terragrunt plan
 terragrunt apply
 ```
-- No need to call `terragrunt init` due to [Terragrunt Auto-Init](https://terragrunt.gruntwork.io/docs/features/auto-init/https://terragrunt.gruntwork.io/docs/features/auto-init/https://terragrunt.gruntwork.io/docs/features/auto-init/https://terragrunt.gruntwork.io/docs/features/auto-init/)
+
+- To deploy koike, set `export TF_VAR_pip_index_url=https://USER:PASSWORD@YOUR-PYPI-INSTANCE.com/simple`
 
 ## Deploy environment
 ```shell script
